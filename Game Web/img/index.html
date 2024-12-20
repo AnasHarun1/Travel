@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        
+            <title>JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript</title>
+        
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+            <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap">
+        
+
+        
+        
+    <link
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+  href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css"
+  />
+</noscript>
+<link
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+  href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css"
+  />
+</noscript>
+
+<script
+  defer
+  src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/components/prism-core.min.js"
+></script>
+<script
+  defer
+  src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+></script>
+
+
+
+        
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/news/assets/css/global-2c6f2910a9.css" />
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/screen-e9fc5800e5.css" />
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/search-bar-971612c5db.css" />
+
+        
+        <script defer src="https://cdn.freecodecamp.org/news-assets/algolia/algoliasearch-3-33-0/algoliasearch.min.js"></script>
+        <script defer src="https://cdn.freecodecamp.org/news-assets/algolia/autocomplete-0-36-0/autocomplete.min.js"></script>
+
+        
+        <script defer src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/dayjs.min.js"></script>
+        <script defer src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/localizedFormat.min.js"></script>
+        <script defer src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/relativeTime.min.js"></script>
+
+        
+        
+            <script defer src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/locale/en.min.js"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",(()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")})),document.addEventListener("DOMContentLoaded",(()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",(e=>{i=e.target.value})),o.addEventListener("submit",(e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()}));const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No tutorials found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",((e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)}));document.addEventListener("click",(e=>{e.target!==s&&l.autocomplete.close()}))})),document.addEventListener("DOMContentLoaded",(()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")}));const isAuthenticated=document.cookie.split(";").some((e=>e.trim().startsWith("jwt_access_token="))),isDonor=document.cookie.split(";").some((e=>e.trim().startsWith("isDonor=true")));</script>
+
+        
+        
+    
+        <script
+            data-ad-client="ca-pub-9482786369113753"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            crossorigin="anonymous"
+            async
+        ></script>
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/javascript-game-tutorial-stick-hero-with-html-canvas/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="In this tutorial, you&#39;ll learn how to create a game that&#39;s inspired by Stick Hero – using plain JavaScript and HTML canvas. We are going to recreate Stick Hero [https://apps.apple.com/us/app/stick-hero/id918338898], a mobile game published by KetchApp. We&#39;ll go through how the game works in general, how to use JavaScript to">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript">
+    
+        <meta property="og:description" content="In this tutorial, you&#39;ll learn how to create a game that&#39;s inspired by Stick Hero – using plain JavaScript and HTML canvas. We are going to recreate Stick Hero [https://apps.apple.com/us/app/stick-hero/id918338898], a mobile game published by KetchApp. We&#39;ll go through how the game works in general, how to use JavaScript to">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/javascript-game-tutorial-stick-hero-with-html-canvas/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png">
+    <meta property="article:published_time" content="2023-11-16T19:00:55.000Z">
+    <meta property="article:modified_time" content="2023-11-17T19:56:38.000Z">
+    
+        <meta property="article:tag" content="JavaScript">
+    
+        <meta property="article:tag" content="Game Development">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript">
+    
+        <meta name="twitter:description" content="In this tutorial, you&#39;ll learn how to create a game that&#39;s inspired by Stick Hero – using plain JavaScript and HTML canvas. We are going to recreate Stick Hero [https://apps.apple.com/us/app/stick-hero/id918338898], a mobile game published by KetchApp. We&#39;ll go through how the game works in general, how to use JavaScript to">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/javascript-game-tutorial-stick-hero-with-html-canvas/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Hunor Márton Borbély">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="JavaScript, Game Development">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@HunorBorbely">
+    
+
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1143">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png",
+		"width": 2000,
+		"height": 1143
+	},
+	"url": "https://www.freecodecamp.org/news/javascript-game-tutorial-stick-hero-with-html-canvas/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2023-11-16T19:00:55.000Z",
+	"dateModified": "2023-11-17T19:56:38.000Z",
+	"keywords": "JavaScript, Game Development",
+	"description": "In this tutorial, you&#x27;ll learn how to create a game that&#x27;s inspired by Stick\nHero – using plain JavaScript and HTML canvas.\n\nWe are going to recreate Stick Hero\n[https://apps.apple.com/us/app/stick-hero/id918338898], a mobile game published\nby KetchApp. We&#x27;ll go through how the game works in general, how to use\nJavaScript to draw on a &lt;canvas&gt; element, how to add game logic and animate the\ngame, and how event handling works. \n\nBy the end of this guide, you will have built the entire game using p",
+	"headline": "JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript",
+	"author": {
+		"@type": "Person",
+		"name": "Hunor Márton Borbély",
+		"url": "https://www.freecodecamp.org/news/author/hunor/",
+		"sameAs": [
+			"https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ",
+			"https://twitter.com/HunorBorbely"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://www.freecodecamp.org/news/content/images/2021/02/51427918_2617954211566232_1309842743266115584_o-copy.jpg",
+			"width": 533,
+			"height": 501
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+<!-- Web Monetization (https://webmonetization.org/) -->
+<meta name="monetization" content="$ilp.uphold.com/LJmbPn7WD4JB">
+<!-- end Web Monetization -->
+
+<!-- dataLayer setup -->
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
+<!-- End dataLayer setup -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+<!-- End Google Tag Manager -->
+
+
+<meta name="google-site-verification" content="b4tITLzEeeZGEpvD4mGNf3khKM4fvqejQaz9SYBQP8E" />
+
+        
+    </head>
+    
+    
+        <body class="home-template">
+    
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        
+<form id="search-form" data-test-label="search-bar">
+    <div role="search" class="searchbox__wrapper">
+        <label class="fcc_sr_only" for='search-input'>
+            Search
+        </label>
+        <input type="search" placeholder="
+    Search 10,600+ tutorials
+" id="search-input" />
+        <button type="submit" class="ais-SearchBox-submit">
+            <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z" />
+</svg>
+
+            <span class="fcc_sr_only">Submit your search query</span>
+        </button>
+        <div id='dropdown-container'></div>
+    </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news" data-test-label="site-nav-logo"><img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp.org" /></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a
+                class="nav-forum"
+                id="nav-forum"
+                rel="noopener noreferrer"
+                href="https://forum.freecodecamp.org/"
+                target="_blank"
+                data-test-label="forum-button"
+            >Forum</a>
+            <a
+                class="toggle-button-nav"
+                id="nav-donate"
+                rel="noopener noreferrer"
+                href="https://www.freecodecamp.org/donate/"
+                target="_blank"
+                data-test-label="donate-button"
+            >Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank">
+    <p id="banner-text"></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");isAuthenticated?(t.innerHTML="Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href="https://www.freecodecamp.org/donate",e.setAttribute("text-variation","authenticated")):isDonor?(t.innerHTML="Thank you for supporting freeCodeCamp through <span>your donations</span>.",e.href="https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/",e.setAttribute("text-variation","donor")):(t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default"))}));</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post ">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" datetime="Thu Nov 16 2023 19:00:55 GMT+0000 (Coordinated Universal Time)">
+                            November 16, 2023
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a  dir="ltr" href="/news/tag/javascript/">
+                                #JavaScript
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title">JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript</h1>
+                </header>
+                <div class="post-full-author-header" data-test-label="author-header-no-bio">
+                    
+                        
+                            
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img
+      srcset="https://www.freecodecamp.org/news/content/images/size/w60/2021/02/51427918_2617954211566232_1309842743266115584_o-copy.jpg 60w"
+      sizes="60px"
+      src="https://www.freecodecamp.org/news/content/images/size/w60/2021/02/51427918_2617954211566232_1309842743266115584_o-copy.jpg"
+      class="author-profile-image"
+      alt="Hunor Márton Borbély"
+      width="533"
+      height="501"
+      onerror="this.style.display='none'"
+      
+      data-test-label="profile-image"
+    />
+  
+        
+
+        <section class="author-card-content author-card-content-no-bio">
+            <span class="author-card-name">
+                <a href="/news/author/hunor/" data-test-label="profile-link">
+                    
+                        Hunor Márton Borbély
+                    
+                </a>
+            </span>
+            
+        </section>
+    </section>
+
+                        
+                    
+                </div>
+                
+                    <figure class="post-full-image">
+                        
+    <picture>
+      <source
+        media="(max-width: 700px)"
+        sizes="1px"
+        srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w"
+      />
+      <source 
+        media="(min-width: 701px)"
+        sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px"
+        srcset="https://www.freecodecamp.org/news/content/images/size/w300/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png 300w,https://www.freecodecamp.org/news/content/images/size/w600/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png 600w,https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png 1000w,https://www.freecodecamp.org/news/content/images/size/w2000/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png 2000w"
+      />
+      <img
+        onerror="this.style.display='none'"
+        src="https://www.freecodecamp.org/news/content/images/size/w2000/2023/11/_Users_hunormartonborbely_Documents_Courses_Youtube_Sticky-20Hero_index.html-High-Res-.png"
+        alt="JavaScript Game Tutorial – Build a Stick Hero Clone with HTML Canvas + JavaScript",
+        width="2000"
+        height="1143"
+      >
+    </picture>
+  
+                    </figure>
+                
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<p>In this tutorial, you'll learn how to create a game that's inspired by Stick Hero – using plain JavaScript and HTML canvas.</p><p>We are going to recreate <a href="https://apps.apple.com/us/app/stick-hero/id918338898">Stick Hero</a>, a mobile game published by KetchApp. We'll go through how the game works in general, how to use JavaScript to draw on a <code>&lt;canvas&gt;</code> element, how to add game logic and animate the game, and how event handling works. </p><p>By the end of this guide, you will have built the entire game using plain JavaScript.</p><p>Throughout the tutorial, we will be using JavaScript to manipulate the game state and the HTML canvas element to render the game scene. To get the most out of this tutorial, you should have a basic understanding of JavaScript. But even if you are a beginner, you can still follow along and learn as we go.</p><p>Let's get started and build our own Stick Hero game using JavaScript and HTML canvas!</p><p>If you prefer video format, you can also <a href="https://youtu.be/eue3UdFvwPo?si=U0QItUV2sRkqVCer">watch this tutorial on YouTube</a>.</p><h2 id="table-of-contents">Table of Contents</h2><ol><li><a href="#the-stick-hero-game">The Stick Hero Game</a></li><li><a href="#game-phases">Game Phases</a></li><li><a href="#the-main-parts-of-the-game">The Main Parts of the Game</a></li><li><a href="#how-to-initialize-the-game">How to Initialize the Game</a></li><li><a href="#the-draw-function">The Draw Function</a></li><li><a href="#event-handling">Event Handling</a></li><li><a href="#the-main-animation-loop">The Main Animation Loop</a></li><li><a href="#summary">Summary</a></li></ol><h1 id="the-stick-hero-game">The Stick Hero Game</h1><p>In this game, you control a hero who walks from platform to platform by stretching a stick that serves as a bridge. If the stick is the right size, then the hero can safely cross to the next platform. But if the stick is too short or too long, then the hero will fall down.</p><p>You can find a playable version of the game we are about to create on <a href="https://codepen.io/HunorMarton/pen/xxOMQKg">CodePen</a> where you can also see the final source code. Give it a try before we get into the details. </p><p>You can also check out the original game both on <a href="https://apps.apple.com/us/app/stick-hero/id918338898">iOS</a> and <a href="https://play.google.com/store/apps/details?id=com.ketchapp.stickhero&amp;hl=en&amp;gl=US">Android</a>.</p><figure class="kg-card kg-embed-card"><iframe id="cp_embed_xxOMQKg" src="https://codepen.io/HunorMarton/embed/preview/xxOMQKg?default-tabs=js%2Cresult&amp;height=300&amp;host=https%3A%2F%2Fcodepen.io&amp;slug-hash=xxOMQKg" title="Embedded content" scrolling="no" frameborder="0" height="300" allowtransparency="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;" loading="lazy"></iframe></figure><h1 id="game-phases">Game Phases</h1><p>The game has five different phases that loop over and over again untilo the hero falls.</p><ol><li>Initially, the game is <strong>waiting</strong> for user input, and nothing is happening.</li><li>Then once the player holds the mouse down, the game is <strong>stretching</strong> a stick upwards until the mouse is released.</li><li>Then once the mouse is released the stick starts <strong>turning</strong> and it falls down, hopefully on the next platform.</li><li>If that’s the case, then the hero walks along the stick to the next platform.</li><li>Finally, once the hero reaches the next platform, the whole scene <strong>transitions</strong> to the left to center the hero and the next platform ahead. Then the whole loop restarts from the beginning. The game waits for user input, and once the player holds down the mouse a new stick is drawn.</li></ol><p>In a less favorable scenario, the same phases follow each other, but in the walking phase if the other end of the stick doesn’t fall on the next platform, then the hero will only walk until the edge of the stick, and then fall down.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.gif" class="kg-image" alt="Stick-Hero" width="1080" height="608" loading="lazy"><figcaption>The phases of the game</figcaption></figure><h1 id="the-main-parts-of-the-game">The Main Parts of the Game</h1><p>How do we realize this in code? This game has essentially three parts. Game state, the <code>draw</code> function, and the <code>animate</code> function.</p><p>We have a game state that is a collection of variables defining every bit of the game. It includes the current phase, the position of the hero, the coordinates of the platforms, the size and rotation of the sticks, and so on.</p><pre><code class="language-JavaScript">let phase = "waiting"; // waiting | stretching | turning | walking | transitioning | falling
+let lastTimestamp; // The timestamp of the previous animation cycle
+
+let heroX; // Changes when moving forward
+let heroY; // Only changes when falling
+let sceneOffset; // Moves the whole game
+
+let platforms = [];
+let sticks = [];
+
+let score = 0;
+
+...
+</code></pre><p>Then we will have two main functions: one that paints the scene on the screen based on this state (this will be the <code>draw</code> function), and one that will change this state gradually so that it looks like an animation (this will be the <code>animate</code> function). Finally, we're also going to have event handling that will kick off the animation loop.</p><h1 id="how-to-initialize-the-game">How to Initialize the Game</h1><p>To start, let’s initialize the project with a simple HTML, CSS, and JavaScript file. We'll establish the outline of the code and then initialize the state of the game.</p><h2 id="the-html">The HTML</h2><p>The HTML part of this game is very simple. Most of the game will live inside the <code>&lt;canvas&gt;</code> element. We are going to use JavaScript to draw on this canvas. We also have a div element that will display the score and a restart button.</p><p>In the header, we also load our CSS and JavaScript files. Note the <code>defer</code> tag when loading the script. This will execute the script only after the rest of the HTML is loaded, so we can access parts of the HTML (like the canvas element) right away in our script.</p><pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Stick Hero&lt;/title&gt;
+    &lt;link rel="stylesheet" href="index.css" /&gt;
+    &lt;script src="index.js" defer&gt;&lt;/script&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;canvas id="game" width="375" height="375"&gt;&lt;/canvas&gt;
+      &lt;div id="score"&gt;&lt;/div&gt;
+      &lt;button id="restart"&gt;RESTART&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="the-css">The CSS</h2><p>The CSS won’t contain too many things either. We paint the game on the canvas element and the content of the canvas element cannot be styled with CSS. Here we only style the position of our canvas, our score element and the reset button. </p><p>Note, that the reset button by default is invisible. We are going to make it visible using JavaScript once the game ends.</p><pre><code class="language-CSS">html,
+body {
+  height: 100%;
+}
+
+body,
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  font-family: Helvetica;
+}
+
+canvas {
+  border: 1px solid;
+}
+
+#score {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2em;
+  font-weight: 900;
+}
+
+#restart {
+  position: absolute;
+  display: none;
+}
+</code></pre><h2 id="the-outline-of-our-javascript-file">The Outline of Our JavaScript File</h2><p>And finally, the JavaScript part is where all the magic lives. For simplicity, I have put everything in one file, but feel free to break it down into multiple files.</p><p>We are going to introduce a few more variables and a few more functions, but this is the outline of this file. The following things are included:</p><ul><li>We define various variables that together make up the <code>game state</code>. More on their values in the section on how to initialize state.</li><li>We are going to define a few variables as <code>configuration</code>, like the size of the platforms and how fast the hero should move. We cover them in the drawing section and at the main loop.</li><li>A reference to the <code>&lt;canvas&gt;</code> element in HTML, and getting the drawing context of it. This will be used by the <code>draw</code> function.</li><li>A reference to the <code>score</code> element and the <code>restart</code> button in HTML. We will update the score each time the hero traverses to a new platform. And we show the reset button once the game is over.</li><li>We initialize the game state and paint the scene by calling the <code>resetGame</code> function. This is the only top-level function call.</li><li>We define the <code>draw</code> function that will draw the scene on the canvas element based on the state.</li><li>We set up event handlers for the <code>mousedown</code> and <code>mouseup</code> events.</li><li>We define the <code>animate</code> function that will manipulate the state.</li><li>And we will have a few utility functions that we will discuss later.</li></ul><pre><code class="language-JavaScript">// Game state
+let phase = "waiting"; // waiting | stretching | turning | walking | transitioning | falling
+let lastTimestamp; // The timestamp of the previous animation cycle
+
+let heroX; // Changes when moving forward
+let heroY; // Only changes when falling
+let sceneOffset; // Moves the whole game
+
+let platforms = [];
+let sticks = [];
+
+let score = 0;
+
+// Configuration
+...
+
+// Getting the canvas element
+const canvas = document.getElementById("game");
+
+// Getting the drawing context
+const ctx = canvas.getContext("2d");
+
+// Further UI elements
+const scoreElement = document.getElementById("score");
+const restartButton = document.getElementById("restart");
+
+// Start game
+resetGame();
+
+// Resets game state and layout
+function resetGame() {
+  ...
+
+  draw();
+}
+
+function draw() {
+  ...
+}
+
+window.addEventListener("mousedown", function (event) {
+  ...
+});
+
+window.addEventListener("mouseup", function (event) {
+  ...
+});
+
+function animate(timestamp) {
+  ...
+}
+
+...
+</code></pre><h2 id="how-to-initialize-the-state">How to Initialize the State</h2><p>To start the game, we call the same function as we use for resetting it – the <code>resetGame</code> function. It initializes/resets the state of the game and calls the draw function to paint the scene.</p><p>The game state includes the following variables:</p><ul><li><code>phase</code>: The current phase of the game. Its initial value is waiting.</li><li><code>lastTimestamp</code>: Used by the <code>animate</code> function to determine how much time has passed since the last animation cycle. We'll cover it later in more detail.</li><li><code>platforms</code>: An array containing the metadata of each platform. Each platform is represented by an object with an <code>x</code> and a <code>w</code> property representing their X position and width. The first platform is always the same – as defined here – to make sure it has a reasonable size and position. The following platforms are generated by a utility function. As the game progresses, more and more platforms are generated on the fly.</li><li><code>heroX</code>: The X position of the hero. By default, the hero stands close to the edge of the first platform. This value will change during the walking phase.</li><li><code>heroY</code>: The Y position of the hero. By default, it is zero. It only changes if the hero is falling.</li><li><code>sceneOffset</code>: As the hero moves forward, we need to shift the entire screen backwards to keep the hero centered on the screen. Otherwise the hero will walk off the screen. In this variable, we keep track of by how much should we shift back the entire screen. We will update this value during the transitioning phase. By default its value is 0.</li><li><code>sticks</code>: Metadata of the sticks. While the hero can only stretch one stick at a time, we also need to store the previous sticks in order to be able to render them. Therefore the <code>sticks</code> variable is also an array. <br><br>Each stick is represented by an object with the <code>x</code>, <code>length</code>, and <code>rotation</code> properties. The <code>x</code> property represents the starting position of the stick that always matches the corresponding platform’s top-right corner. Its <code>length</code> property will grow in the stretching phase, and its <code>rotation</code> property will go from 0 to 90 in the turning phase. Or from 90 to 180 in the falling phase. <br><br>Initially, the <code>sticks</code> array has one ‘invisible’ stick with 0 length. Every time the hero reaches a new platform, a new stick is added to the array.</li><li><code>score</code>: The score of the game. It shows how many platforms the hero reached. By default it is 0.</li></ul><pre><code class="language-JavaScript">function resetGame() {
+  // Reset game state
+  phase = "waiting";
+  lastTimestamp = undefined;
+
+  // The first platform is always the same
+  platforms = [{ x: 50, w: 50 }];
+  generatePlatform();
+  generatePlatform();
+  generatePlatform();
+  generatePlatform();
+
+  // Initialize hero position
+  heroX = platforms[0].x + platforms[0].w - 30; // Hero stands a bit before the edge
+  heroY = 0;
+
+  // By how much should we shift the screen back
+  sceneOffset = 0;
+
+  // There's always a stick, even if it appears to be invisible (length: 0)
+  sticks = [{ x: platforms[0].x + platforms[0].w, length: 0, rotation: 0 }];
+
+  //Score
+  score = 0;
+
+  // Reset UI
+  restartButton.style.display = "none"; // Hide reset button
+  scoreElement.innerText = score; // Reset score display
+
+  draw();
+}
+</code></pre><p>At the end of this function, we also reset the UI by making sure the reset button is hidden and the score is displayed as 0.</p><p>Once we've initialized the state of the game and reset the UI, the <code>resetGame</code> function calls the <code>draw</code> function to paint the screen for the first time.</p><p>The <code>resetGame</code> function calls a utility function that generates a random platform. In this function, we define what is the minimum distance between two platforms (<code>minumumGap</code>) and what is the maximum distance (<code>maximumGap</code>). We also define what is the minimum width of a platform and what is the maximum width. </p><p>Based on these ranges and the existing platformsk, we generate the metadata of a new platform.</p><pre><code class="language-JavaScript">function generatePlatform() {
+  const minimumGap = 40;
+  const maximumGap = 200;
+  const minimumWidth = 20;
+  const maximumWidth = 100;
+
+  // X coordinate of the right edge of the furthest platform
+  const lastPlatform = platforms[platforms.length - 1];
+  let furthestX = lastPlatform.x + lastPlatform.w;
+
+  const x =
+    furthestX +
+    minimumGap +
+    Math.floor(Math.random() * (maximumGap - minimumGap));
+  const w =
+    minimumWidth + Math.floor(Math.random() * (maximumWidth - minimumWidth));
+
+  platforms.push({ x, w });
+}
+</code></pre><h1 id="the-draw-function">The Draw Function</h1><p>The <code>draw</code> function paints the whole canvas based on the state. It shifts the whole UI by the offset, puts the hero in position, and paints the platforms and the sticks. </p><p>Compared to the working demo linked at the beginning of the article, here we will only go through a simplified version of the draw function. We won't cover painting a background, and we'll simplify the hero’s appearance.</p><p>We will use this function both for painting the initial scene and throughout our main animation loop. </p><p>For the initial paint, some of the features we cover here won't be necessary. For instance, we don’t have any sticks on the scene yet. We'll still cover them, because this way we won’t have to rewrite this function once we start animating the state. </p><p>Everything we draw in this function is based on the state, and it doesn't matter if the state is in an initial state, or if we are further into the game.</p><p>We defined a <code>&lt;canvas&gt;</code> element in HTML. But how do we paint things on it? In JavaScript first, we get the canvas element and then get its context somewhere at the beginning of our file. Then we can use this context to execute drawing commands.</p><p>We also define a few variables upfront as configuration. We do this because we need to use these values at different parts of our game and we want to maintain consistency.</p><ul><li><code>canvasWidth</code> and <code>canvasHeight</code> represent the size of the canvas element in HTML. They have to match with what we set in HTML. We use these values at various places.</li><li><code>platformHeight</code> represents the height of the platforms. We use these values when drawing the platforms themselves, but also when positioning the hero and the sticks.</li></ul><p>The draw function repaints the whole screen from scratch every time. First, let’s make sure that it’s empty. Calling the <code>clearRect</code> function on the drawing context with the correct arguments makes sure we erase everything from it.</p><pre><code class="language-JavaScript">...
+
+&lt;div class="container"&gt;
+  &lt;canvas id="game" width="375" height="375"&gt;&lt;/canvas&gt;
+  &lt;div id="score"&gt;&lt;/div&gt;
+  &lt;button id="restart"&gt;RESTART&lt;/button&gt;
+&lt;/div&gt;
+
+...
+</code></pre><pre><code class="language-JavaScript">...
+
+// Getting the canvas element
+const canvas = document.getElementById("game");
+
+// Getting the drawing context
+const ctx = canvas.getContext("2d");
+
+...
+
+// Configuration
+const canvasWidth = 375;
+const canvasHeight = 375;
+const platformHeight = 100;
+
+...
+
+function draw() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  ...
+}
+
+...
+</code></pre><h2 id="how-to-frame-the-scene">How to Frame the Scene</h2><p>We also want to make sure that the scene has the correct framing. When we use canvas, we have a coordinate system with the center at the top left corner of the screen that grows to the right and downwards. In HTML we set the width and height attributes both to 375 pixels.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.001.jpeg" class="kg-image" alt="Stick-Hero.001" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.001.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.001.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.001.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.001.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>By default the center of the coordinate system is at the top left corner</figcaption></figure><p>Initially, the 0, 0 coordinate is at the top-left corner of the screen, but as the hero moves forward the whole scene should shift to the left. Otherwise, we would run out of the screen.</p><p>As the game progresses, we update the <code>sceneOffset</code> value to keep track of this shift in the main loop. We can use this variable to translate the whole layout. We call the <code>translate</code> command to shift the scene on the X-axis.</p><pre><code class="language-JavaScript">function draw() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  // Save the current transformation
+  ctx.save();
+
+  // Shifting the view
+  ctx.translate(-sceneOffset, 0);
+
+  // Draw scene
+  drawPlatforms();
+  drawHero();
+  drawSticks();
+
+  // Restore transformation to the last save
+  ctx.restore();
+}
+</code></pre><p>It’s important that we do this before we paint anything on the canvas, because the <code>translate</code> command does not actually move anything on the canvas. Anything we painted before on the canvas will stay as it was. </p><p>Instead, the <code>translate</code> command shifts the coordinate system. The 0, 0 coordinate won’t be at the top left corner anymore, but it will be out of the screen on the left. Anything we paint after will be painted according to this new coordinate system.</p><p>This is exactly what we want. As we progress in the game, the hero will increase its X coordinate. By moving the coordinate system backwards, we make sure that it will be painted within the screen.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.002.jpeg" class="kg-image" alt="Stick-Hero.002" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.002.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.002.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.002.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.002.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>Once we use the <code>translate</code> command, the center of the coordinate system will shift to the left</figcaption></figure><p>The <code>translate</code> commands accumulate. This means that if we call the <code>translate</code> command twice, the second doesn’t just override the first one, but will add a shift on top of the first command. </p><p>We are going to call the <code>draw</code> function in a loop, so it’s important that we reset this transformation every time we draw. Also, we always start with the 0, 0 coordinate in the top left corner. Otherwise, the coordinate system will be shifted to the left infinitely.</p><p>We can restore transformations by calling the <code>restore</code> command once we don’t want to be in this shifter coordinate system anymore. The <code>restore</code> command resets transitions and many other settings to the state the canvas was at the last <code>save</code> command. That’s why we often start a painting block by saving the context and end it by restoring it.</p><h2 id="how-to-draw-the-platforms">How to Draw the Platforms</h2><p>So that was just the framing, but we haven’t painted anything yet. Let’s start with a simple one, drawing platforms. The metadata of the platforms is stored in the <code>platforms</code> array. It contains the starting position of the platform and its width.</p><p>We can iterate over this array and fill a rectangle by setting the starting position, and the width and the height of the platform. We do this by calling the <code>fillRect</code> function with the X, Y coordinates and the width and the height of the rectangle to fill. Note that the Y coordinate is upside down – it's growing from top to bottom.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.003.jpeg" class="kg-image" alt="Stick-Hero.003" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.003.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.003.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.003.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.003.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>Drawing the platform</figcaption></figure><pre><code class="language-JavaScript">// Example state of platforms
+let platforms = [
+  { x: 50, w: 50 },
+  { x: 90, w: 30 },
+];
+
+...
+
+function drawPlatforms() {
+  platforms.forEach(({ x, w }) =&gt; {
+    // Draw platform
+    ctx.fillStyle = "black";
+    ctx.fillRect(x, canvasHeight - platformHeight, w, platformHeight);
+  });
+}
+</code></pre><p>What is interesting about canvas, or at least it was surprising to me, is that once you paint something on the canvas you can’t modify it. It’s not like you paint a rectangle, and then you can change its color. Once something is on the canvas it stays as it is. </p><p>Like with a real canvas, once you've painted something you can either cover it, by painting something over it, or you can try to clear the canvas. But you can’t change existing parts really. That’s why we set the color here up front and not afterward (with the <code>fillStyle</code> property).</p><h2 id="how-to-draw-the-hero">How to Draw the Hero</h2><p>We won't cover the hero part in detail in this tutorial, but you can find the source code of the demo above on <a href="https://codepen.io/HunorMarton/pen/xxOMQKg">CodePen</a>. Drawing more advanced shapes is a bit more complicated with the canvas element, and I’m going to cover drawing in more detail in a future tutorial.</p><p>For now, let’s simply use a red rectangle as a placeholder for the hero. Again, we use the <code>fillRect</code> function and pass on a X, Y coordinate and the width and the height of the hero. </p><p>The X and Y positions will be based on the heroX and heroY state. The hero’s X position is relative to the coordinate system, but its Y position is relative to the top of the platform (it has a value of 0 once on top of a platform). We need to adjust the Y position to be on the top of the platform.</p><pre><code class="language-JavaScript">function drawHero() {
+  const heroWidth = 20;
+  const heroHeight = 30;
+
+  ctx.fillStyle = "red";
+  ctx.fillRect(
+    heroX,
+    heroY + canvasHeight - platformHeight - heroHeight,
+    heroWidth,
+    heroHeight
+  );
+}
+</code></pre><h2 id="how-to-draw-the-sticks">How to Draw the Sticks</h2><p>Then let’s see how to paint the sticks. Sticks are a bit trickier because they can be rotated. </p><p>The sticks are stored in an array in a similar fashion as the platforms but have different attributes. They all have a starting position, a length, and a rotation. The last two changes in the main game loop, and the first one – the position – should fit the top-right corner of a platform.</p><p>Based on the length and rotation, we could use some trigonometry and calculate the end position of the stick. But it’s much more interesting if we transform the coordinate system again.</p><p>We can use the <code>translate</code> command again, to set the center of the coordinate system to the edge of the platform. Then we can use the <code>rotate</code> command to rotate the coordinate system around this new center.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.004.jpeg" class="kg-image" alt="Stick-Hero.004" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.004.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.004.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.004.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.004.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>After using the <code>translate</code> and <code>rotate</code> commands, the coordinate system will be twisted around a new center</figcaption></figure><pre><code class="language-JavaScript">// Example state of sticks
+let sticks = [
+  { x: 100, length: 50, rotation: 60 }
+];
+
+...
+
+function drawSticks() {
+  sticks.forEach((stick) =&gt; {
+    ctx.save();
+
+    // Move the anchor point to the start of the stick and rotate
+    ctx.translate(stick.x, canvasHeight - platformHeight);
+    ctx.rotate((Math.PI / 180) * stick.rotation);
+
+    // Draw stick
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -stick.length);
+    ctx.stroke();
+
+    // Restore transformations
+    ctx.restore();
+  });
+}
+</code></pre><p>After the <code>translate</code> and <code>rotate</code> commands, the starting point of the stick will be at the 0, 0 coordinate and the coordinate system will be rotated. </p><p>In this example, we draw a line upwards – both its beginning and its end have the same X coordinate. Only the Y coordinate is changing. Yet the line is heading to the right because the whole coordinate system has turned. Now upwards is in a diagonal direction. It’s a bit mind-twisting, but you can get used to it.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.005.jpeg" class="kg-image" alt="Stick-Hero.005" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.005.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.005.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.005.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.005.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>While we draw a line along the Y axis, the line will appear diagonal because of the transformed coordinate system</figcaption></figure><p>The actual drawing of the line is also interesting. There’s no simple line-drawing command so we have to draw a path. </p><p>We get a path by connecting multiple points. We can connect them with arcs, curves, and straight lines. In this case, we have a very simple one. We just begin a path (<code>beginPath</code>), move to a coordinate (<code>moveTo</code>), then draw a straight line to the next coordinate (<code>lineTo</code>). Then we finish it with the <code>stroke</code> command. </p><p>We can also finish the path with the fill command, but that only makes sense with shapes.</p><p>Note that because we shift and turn the coordinate system here again, at the end of this function we need to restore transformations (and save the transformation matrix at the beginning of this function). Otherwise, all upcoming drawing commands would be twisted like this.</p><h1 id="event-handling">Event Handling</h1><p>Now that we have drawn the scene, let’s kick off the game by handling user interactions. Handling events is the easiest part of the game. We are listening to the <code>mousedown</code> and the <code>mouseup</code> event, and we handle the <code>click</code> event of the restart button.</p><p>Once the user holds the mouse down, we initiate the stretching phase by setting the <code>phase</code> variable to <code>stretching</code>. We reset the timestamp that the main event loop is going to use (we get back to this later), and we trigger the main event loop by requesting an animation frame for the <code>animate</code> function. </p><p>All these are only happening if the current state of the game is waiting. In any other case, we ignore the <code>mousedown</code> event.</p><pre><code class="language-JavaScript">let phase = "waiting";
+let lastTimestamp;
+
+...
+
+const restartButton = document.getElementById("restart");
+
+...
+
+window.addEventListener("mousedown", function () {
+  if (phase == "waiting") {
+    phase = "stretching";
+    lastTimestamp = undefined;
+    window.requestAnimationFrame(animate);
+  }
+});
+
+window.addEventListener("mouseup", function () {
+  if (phase == "stretching") {
+    phase = "turning";
+  }
+});
+
+restartButton.addEventListener("click", function (event) {
+  resetGame();
+  restartButton.style.display = "none";
+});
+
+...
+</code></pre><p>Handling the <code>mouseup</code> event is even simpler. If we are currently stretching a stick, then we stop that and move to the next phase when the stick falls down.</p><p>Finally, we also add an event handler for the restart button. The reset button is hidden by default and will be only visible once the hero has fallen. But we can already define its behavior, and once it appears it will work. If we click reset, we call the <code>resetGame</code> function to reset the game and hide the button.</p><p>That’s all the event handling we have. The rest now depends on the main animation loop that we just invoked with a <code>requestAnimationFrame</code>.</p><h1 id="the-main-animation-loop">The Main Animation Loop</h1><p>The main loop is the most complicated part of the game. This is a function that will keep changing the state of the game and calling the <code>draw</code> function to repaint the whole screen based on this state. </p><p>As it’s going to be called 60 times every second, the constant repainting of the screen will make it look like a continuous animation. Because this function is running so frequently, we only change the game state little by little each time.</p><p>This <code>animate</code> function gets triggered as a <code>requestAnimationFrame</code> call by the <code>mousedown</code> event (see above). With its last line, it keeps invoking itself until we don’t stop it by returning from the function. </p><p>There are only two cases when we would stop the loop: when moved to the <code>waiting</code> phase and there’s nothing to animate, or when the hero falls down and the game is over.</p><p>This function keeps track of how much time has passed since its last call. We are going to use this information to precisely calculate how the state should change. Like when the hero is walking, we need to calculate exactly how many pixels it moves based on its speed and the time passed since the last animation cycle.</p><pre><code class="language-JavaScript">let lastTimestamp;
+
+...
+
+function animate(timestamp) {
+  if (!lastTimestamp) {
+    // First cycle
+    lastTimestamp = timestamp;
+    window.requestAnimationFrame(animate);
+    return;
+  }
+
+  let timePassed = timestamp - lastTimestamp;
+
+  switch (phase) {
+    case "waiting":
+      return; // Stop the loop
+    case "stretching": {
+      sticks[sticks.length - 1].length += timePassed / stretchingSpeed;
+      break;
+    }
+    case "turning": {
+      sticks[sticks.length - 1].rotation += timePassed / turningSpeed;
+      ...
+      break;
+    }
+    case "walking": {
+      heroX += timePassed / walkingSpeed;
+      ...
+      break;
+    }
+    case "transitioning": {
+      sceneOffset += timePassed / transitioningSpeed;
+      ...
+      break;
+    }
+    case "falling": {
+      heroY += timePassed / fallingSpeed;
+      ...
+      break;
+    }
+  }
+  
+  draw();
+  lastTimestamp = timestamp;
+
+  window.requestAnimationFrame(animate);
+}</code></pre><h2 id="how-to-calculate-the-time-passed-between-two-renders">How to Calculate the Time Passed Between Two Renders</h2><p>Functions invoked with the <code>requestAnimationFrame</code> function receive the current <code>timestamp</code> as an attribute. At the end of every cycle, we save this <code>timestamp</code> value into the <code>lastTimestamp</code> attribute, so that in the next cycle we can calculate how much time passed between two cycles. In the code above, this is the <code>timePassed</code> variable.</p><p>The first cycle is an exception because at that point, we didn’t have a previous cycle yet. Initially, the value of <code>lastTimestamp</code> is <code>undefined</code>. In this case, we skip a render and we only render the scene on the second cycle, where we already have all the values we need. This is the part at the very beginning of the <code>animate</code> function.</p><h2 id="how-to-animate-part-of-the-state">How to Animate Part of the State</h2><p>In each phase, we animate a different part of the state. The only exception is the waiting phase because then we have nothing to animate. In that case, we return from the function. This will break the loop, and the animation will stop.</p><p>In the stretching phase – when the player is holding the mouse down – we need to grow the stick as the time passes. We calculate how much longer it should be based on the time passed and a speed value that defines how much time it takes for the stick to grow one pixel.</p><p>A very similar thing is happening in every other phase as well. In the turning phase, we change the rotation of the stick based on the time passed. In the walking phase, we change the horizontal position of the hero based on time. In the transitioning phase, we change the offset value of the whole scene. In the falling phase, we change the vertical position of the hero.</p><p>Each of these phases has its own speed configuration. These values tell how many milliseconds it takes to grow the stick by one pixel, turn the stick by one degree, walk one pixel, and so on.</p><pre><code class="language-JavaScript">// Configuration
+const stretchingSpeed = 4; // Milliseconds it takes to draw a pixel
+const turningSpeed = 4; // Milliseconds it takes to turn a degree
+const walkingSpeed = 4;
+const transitioningSpeed = 2;
+const fallingSpeed = 2;
+
+...
+</code></pre><h2 id="how-to-move-on-to-the-next-phase">How to Move On to the Next Phase</h2><p>In most of these phases, we also have a threshold value that ends the phase and triggers the next one. The waiting and stretching phases are the exceptions because their end is based on user interaction. |The waiting phase ends with the <code>mousedown</code> event and the stretching phase ends with the <code>mouseup</code> event.</p><p>The turning phase stops when the stick falls flat and its rotation reaches 90 degrees. The walking phase ends when the hero reaches the edge of the next platform or the end of the stick. And so on. </p><p>If these thresholds are reached, the main game loop sets the game to the next phase and in the next loop, it will act accordingly. Let’s see these in more detail.</p><h3 id="the-waiting-phase">The waiting phase</h3><p>If we are in the waiting phase and nothing is happening, we return from the function. This return statement means that we never reach the end of the function and there won’t be another request for an animation frame. The loop stops. We need the user input handler to trigger another loop.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.001-1.jpeg" class="kg-image" alt="Stick-Hero.001-1" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.001-1.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.001-1.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.001-1.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.001-1.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the waiting phase nothing happens</figcaption></figure><pre><code class="language-JavaScript">function animate(timestamp) {
+	...
+
+  switch (phase) {
+    case "waiting":
+      return; // Stop the loop
+
+    ...
+
+  }
+
+	...
+}
+</code></pre><h3 id="the-stretching-phase">The stretching phase</h3><p>In the stretching phase, we increase the length of the last stick based on the time passed and wait until the user releases the mouse. The last stick is always the one in front of the hero. After every view transition, a new stick is added to the current platform.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.002-1.jpeg" class="kg-image" alt="Stick-Hero.002-1" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.002-1.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.002-1.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.002-1.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.002-1.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the stretching phase we increase the last stick's length</figcaption></figure><pre><code class="language-JavaScript">function animate(timestamp) {
+	...
+
+  switch (phase) {
+		...
+    case "stretching": {
+      sticks[sticks.length - 1].length += timePassed / stretchingSpeed;
+			break;
+    }
+		...
+  }
+
+  ...
+}
+</code></pre><h3 id="the-turning-phase">The turning phase</h3><p>In the turning phase, we change the rotation of the last stick. We only do it until the stick reaches 90 degrees because that means the stick has reached a flat position. Then we set the phase to walking, so the next <code>requestAnimationFrame</code> will adjust the hero and not the stick.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.003-1.jpeg" class="kg-image" alt="Stick-Hero.003-1" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.003-1.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.003-1.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.003-1.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.003-1.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the turning phase we increase the last stick's rotation</figcaption></figure><p>Once the stick reaches 90 degrees, then if the stick falls on the next platform, we also increase the score value. We increase the <code>score</code> state and update the <code>innerText</code> attribute of the <code>scoreElement</code> (see the outline of the JavaScript file chapter). Then we generate a new platform to be sure that we never run out of them.</p><p>If the stick didn’t fall on the next platform, we don’t increase the score and we don’t generate a new platform. We also don’t trigger the falling phase yet either, because first the hero still tries to walk along the stick.</p><pre><code class="language-JavaScript">function animate(timestamp) {
+  ...
+
+  switch (phase) {
+    ...
+    case "turning": {
+      sticks[sticks.length - 1].rotation += timePassed / turningSpeed;
+
+      if (sticks[sticks.length - 1].rotation &gt;= 90) {
+        sticks[sticks.length - 1].rotation = 90;
+
+        const nextPlatform = thePlatformTheStickHits();
+        if (nextPlatform) {
+          score++;
+          scoreElement.innerText = score;
+
+          generatePlatform();
+        }
+
+        phase = "walking";
+      }
+      break;
+    }
+    ...
+  }
+
+  ...
+}
+</code></pre><p>This phase uses a utility function to figure out whether the stick will land on the platform or not. It calculates the right end position of the last stick and checks if this position falls between the left and right edge of a platform. If it does, it returns the platform, if not then it returns undefined.</p><pre><code class="language-JavaScript">function thePlatformTheStickHits() {
+  const lastStick = sticks[sticks.length - 1];
+  const stickFarX = lastStick.x + lastStick.length;
+
+  const platformTheStickHits = platforms.find(
+    (platform) =&gt; platform.x &lt; stickFarX &amp;&amp; stickFarX &lt; platform.x + platform.w
+  );
+
+  return platformTheStickHits;
+}
+</code></pre><h3 id="the-walking-phase">The walking phase</h3><p>In the walking phase, we move the hero forward. The end of this phase depends on whether the stick reaches the next platform or not. To determine this, we use the same utility function we just defined above.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.004-1.jpeg" class="kg-image" alt="Stick-Hero.004-1" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.004-1.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.004-1.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.004-1.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.004-1.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the walking phase we increase the hero's X position</figcaption></figure><p>If the end of the stick falls on a platform, then we limit the hero’s position to the edge of that platform. Then once it’s reached, we go to the transitioning phase. If the end of the stick didn’t fall on a platform, though, we limit the hero's forward movement until the end of the stick and then we start the falling phase.</p><pre><code class="language-JavaScript">function animate(timestamp) {
+  ...
+
+  switch (phase) {
+    ...
+    case "walking": {
+      heroX += timePassed / walkingSpeed;
+
+      const nextPlatform = thePlatformTheStickHits();
+      if (nextPlatform) {
+        // If the hero will reach another platform then limit its position at its edge
+        const maxHeroX = nextPlatform.x + nextPlatform.w - 30;
+        if (heroX &gt; maxHeroX) {
+          heroX = maxHeroX;
+          phase = "transitioning";
+        }
+      } else {
+        // If the hero won't reach another platform then limit its position at the end of the pole
+        const maxHeroX =
+          sticks[sticks.length - 1].x +
+          sticks[sticks.length - 1].length;
+        if (heroX &gt; maxHeroX) {
+          heroX = maxHeroX;
+          phase = "falling";
+        }
+      }
+      break;
+    }
+    ...
+  }
+
+  ...
+}
+</code></pre><h3 id="the-transitioning-phase">The transitioning phase</h3><p>In the transitioning phase, we move the whole scene. We want to hero to stand at the same position on the screen where it initially stood, but now it’s standing on a different platform. This means that we have to calculate by how much we should shift the whole scene back to achieve the same position. Then just set the phase to waiting and we wait for another mouse event.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.005-1.jpeg" class="kg-image" alt="Stick-Hero.005-1" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.005-1.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.005-1.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.005-1.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.005-1.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the transitioning phase we shift the whole view</figcaption></figure><pre><code class="language-JavaScript">function animate(timestamp) {
+	...
+
+  switch (phase) {
+		...
+    case "transitioning": {
+      sceneOffset += timePassed / transitioningSpeed;
+
+      const nextPlatform = thePlatformTheStickHits();
+      if (nextPlatform.x + nextPlatform.w - sceneOffset &lt; 100) {
+        sticks.push({
+          x: nextPlatform.x + nextPlatform.w,
+          length: 0,
+          rotation: 0,
+        });
+        phase = "waiting";
+      }
+      break;
+    }
+		...
+  }
+
+  ...
+}
+</code></pre><p>We know we've reached the right position when the right side of the platform – shifted by the offset – reaches the first platform's original right-side position. If we look back at initializing the platform, we see that the first platform always has an X position of 50 and its width is also always 50. This means that its right end will be at 100.</p><p>At the end of this phase, we also added a new stick to the sticks array with initial values.</p><h3 id="the-falling-phase">The falling phase</h3><p>In the failing scenario, two things are changing: the hero’s position and the last stick’s rotation. Then once the hero has fallen out of the screen, we stop the game loop again by returning from the function.</p><figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.006.jpeg" class="kg-image" alt="Stick-Hero.006" srcset="https://www.freecodecamp.org/news/content/images/size/w600/2023/11/Stick-Hero.006.jpeg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2023/11/Stick-Hero.006.jpeg 1000w, https://www.freecodecamp.org/news/content/images/size/w1600/2023/11/Stick-Hero.006.jpeg 1600w, https://www.freecodecamp.org/news/content/images/2023/11/Stick-Hero.006.jpeg 1920w" sizes="(min-width: 1200px) 1200px" width="1920" height="1080" loading="lazy"><figcaption>In the falling phase we both increase the Y position of the hero and the rotation of the last stick</figcaption></figure><pre><code class="language-JavaScript">function animate(timestamp) {
+	...
+
+  switch (phase) {
+		...
+    case "falling": {
+      heroY += timePassed / fallingSpeed;
+
+      if (sticks[sticks.length - 1].rotation &lt; 180) {
+        sticks[sticks.length - 1].rotation += timePassed / turningSpeed;
+      }
+
+      const maxHeroY = platformHeight + 100;
+      if (heroY &gt; maxHeroY) {
+        restartButton.style.display = "block";
+        return;
+      }
+      break;
+    }
+		...
+  }
+
+  ...
+}
+</code></pre><p>So that’s the main loop – how the game moves from phase to phase, changing a range of variables. At the end of every cycle the function calls the <code>draw</code> function to update the scene and requests another frame. If you did everything right, you should have a working game now!</p><h1 id="summary">Summary</h1><p>In this tutorial, we covered a lot. We learned how to paint basic shapes on a <code>canvas</code> element with JavaScript and we implemented a whole game. </p><p>Despite the length of this article, there are still a few things we did not cover here. You can check out the <a href="https://codepen.io/HunorMarton/pen/xxOMQKg">source code</a> of this game for additional features on <a href="https://codepen.io/HunorMarton/pen/xxOMQKg">CodePen</a>. These include:</p><ul><li>How to make the game fit the whole browser window and translate the screen accordingly.</li><li>How to draw a background to the scene and how to draw a more detailed version of our hero.</li><li>We add a double score zone to the middle of each platform. If the end of the stick falls into this very small region, the hero scores two points.</li></ul><p>I hope you enjoyed this tutorial. Stay tuned for more here on freeCodeCamp and on my <a href="https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ">YouTube channel</a>.</p><figure class="kg-card kg-embed-card" data-test-label="fitted">
+        <div class="fluid-width-video-container">
+          <div style="padding-top: 56.17977528089888%;" class="fluid-width-video-wrapper">
+            <iframe width="356" height="200" src="https://www.youtube.com/embed/eue3UdFvwPo?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" title="Code a Stick Hero game with JavaScript and HTML Canvas" name="fitvid0"></iframe>
+          </div>
+        </div>
+      </figure><h2 id="subscribe-for-more-tutorials-on-web-development-"><strong><strong><strong>Subscribe for more tutorials on </strong>Web<strong> Development:</strong></strong></strong></h2><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.youtube.com/channel/UCxhgW0Q5XLvIoXHAfQXg9oQ"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Hunor Márton Borbély</div><div class="kg-bookmark-description">Game development with JavaScript, creative coding tutorials, HTML canvas, SVG, Three.js, and some React and Vue https://twitter.com/HunorBorbelyhttps://codepen.io/HunorMarton…</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://www.youtube.com/s/desktop/9844cff5/img/favicon_144x144.png" width="144" height="144" alt="favicon_144x144" loading="lazy"><span class="kg-bookmark-publisher">YouTube</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://yt3.googleusercontent.com/ytc/APkrFKaQ34YAITK6J0qgy6Iv6pms35dPhF68Hyy7BoYoLA=s900-c-k-c0x00ffffff-no-rj" width="900" height="900" alt="APkrFKaQ34YAITK6J0qgy6Iv6pms35dPhF68Hyy7BoYoLA=s900-c-k-c0x00ffffff-no-rj" loading="lazy"></div></a></figure>
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                                    <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                                
+                            </div>
+                        
+                    </div>
+                    <hr />
+                    
+                        <div class="post-full-author-header" data-test-label="author-header-with-bio">
+                            
+                                
+    
+    
+    
+
+    <section class="author-card" data-test-label="author-card">
+        
+            
+    <img
+      srcset="https://www.freecodecamp.org/news/content/images/size/w60/2021/02/51427918_2617954211566232_1309842743266115584_o-copy.jpg 60w"
+      sizes="60px"
+      src="https://www.freecodecamp.org/news/content/images/size/w60/2021/02/51427918_2617954211566232_1309842743266115584_o-copy.jpg"
+      class="author-profile-image"
+      alt="Hunor Márton Borbély"
+      width="533"
+      height="501"
+      onerror="this.style.display='none'"
+      loading="lazy"
+      data-test-label="profile-image"
+    />
+  
+        
+
+        <section class="author-card-content ">
+            <span class="author-card-name">
+                <a href="/news/author/hunor/" data-test-label="profile-link">
+                    
+                        Hunor Márton Borbély
+                    
+                </a>
+            </span>
+            
+                
+                    <p data-test-label="author-bio">Full-stack web developer, coach, posting creative coding tutorials and games on YouTube and CodePen</p>
+                
+            
+        </section>
+    </section>
+
+                            
+                        </div>
+                        <hr />
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",(()=>{const t=document.getElementById("tweet-btn"),e=window.location,n="JavaScript%20Game%20Tutorial%20%E2%80%93%20Build%20a%20Stick%20Hero%20Clone%20with%20HTML%20Canvas%20%2B%20JavaScript".replace(/&#39;/g,"%27"),o="",r="@HunorBorbely",i=Boolean("");let a;if(i&&(o||r)){const t={originalPostAuthor:"",currentPostAuthor:"Hunor Márton Borbély"};a=encodeURIComponent(`Thank you ${o||t.originalPostAuthor} for writing this helpful article, and ${r||t.currentPostAuthor} for translating it.`)}else!i&&r&&(a=encodeURIComponent(`Thank you ${r} for writing this helpful article.`));const l=`window.open(\n    '${a?`https://twitter.com/intent/tweet?text=${a}%0A%0A${n}%0A%0A${e}`:`https://twitter.com/intent/tweet?text=${n}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",l)}));</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad bottom">
+                        <div class="ad-wrapper" data-test-label="ad-wrapper">
+    
+    <div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+    <ins
+        class="adsbygoogle"
+        style="display: block; height: 280px;"
+        data-ad-client="ca-pub-9482786369113753"
+        data-ad-slot="5720086888"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+    ></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-desc-col">
+                <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+                <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+                <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+                <p class="footer-donation" data-test-label="donate-text">
+                    You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank" >make a tax-deductible donation here</a>.
+                </p>
+            </div>
+            <div class="trending-guides" data-test-label="trending-guides">
+                <div class="col-header">Trending Guides</div>
+                <div class="trending-guides-row">
+                    <div class="footer-col footer-col-1">
+                        <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">What is Programming?
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/open-closed-principle-solid-architecture-concept-explained/" rel="noopener noreferrer" target="_blank">Open-Closed Principle
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/string-equality-in-javascript-how-to-compare-strings-in-js/" rel="noopener noreferrer" target="_blank">Compare Strings in JS
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-str-function-how-to-convert-to-a-string/" rel="noopener noreferrer" target="_blank">Python str() Function
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/add-to-dict-in-python/" rel="noopener noreferrer" target="_blank">Append to Python Dict
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-sleep-time-sleep-in-python/" rel="noopener noreferrer" target="_blank">time.sleep() in Python
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-requirementstxt-explained/" rel="noopener noreferrer" target="_blank">Python Requirements.txt
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/what-is-a-string-in-javascript/" rel="noopener noreferrer" target="_blank">What is a String in JS?
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/what-is-ethical-hacking/" rel="noopener noreferrer" target="_blank">What&#39;s Ethical Hacking?
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/how-to-get-the-current-url-with-javascript/" rel="noopener noreferrer" target="_blank">Get Current URL with JS
+                        </a>
+                    </div>
+                    <div class="footer-col footer-col-2">
+                        <a href="https://www.freecodecamp.org/news/what-is-a-rom-price-and-cost-estimate-2/" rel="noopener noreferrer" target="_blank">What is a ROM?
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/css-bold-how-to-bold-text-in-html-with-font-weight/" rel="noopener noreferrer" target="_blank">CSS Bold Text
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/git-reset-hard-how-to-reset-to-head-in-git/" rel="noopener noreferrer" target="_blank">Git Reset Hard
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-env-vars-how-to-get-an-environment-variable-in-python/" rel="noopener noreferrer" target="_blank">Python Env Vars
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-set-vs-list/" rel="noopener noreferrer" target="_blank">Python Set vs List
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/how-to-use-the-javascript-require-function/" rel="noopener noreferrer" target="_blank">JavaScript Require
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-delete-file-how-to-remove-files-and-folders/" rel="noopener noreferrer" target="_blank">Python Delete File
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/python-sort-lists-and-reverse-arrays/" rel="noopener noreferrer" target="_blank">Python Sorted List
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/force-pull-in-github-how-to-overwrite-on-local-changes-with-git/" rel="noopener noreferrer" target="_blank">Force Pull in GitHub
+                        </a>
+                        <a href="https://www.freecodecamp.org/news/check-python-version-how-to-check-py-in-mac-windows-and-linux/" rel="noopener noreferrer" target="_blank">Check Python Version
+                        </a>
+                    </div>
+                    <div class="footer-col footer-col-3">
+                        <div class="footer-left">
+                            <a href="https://www.freecodecamp.org/news/how-to-unhide-a-row-or-column-in-excel-or-unhide-all-rows-and-columns/" rel="noopener noreferrer" target="_blank">Unhide Row/Column Excel
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/python-dictionary-how-to-create-a-dict-in-python/" rel="noopener noreferrer" target="_blank">Create Python Dictionary
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/how-to-fix-dns-server-not-responding-error-windows-10/" rel="noopener noreferrer" target="_blank">DNS Server Not Responding
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/setting-a-static-ip-in-ubuntu-linux-ip-address-tutorial/" rel="noopener noreferrer" target="_blank">Set a Static IP in Ubuntu
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/python-remove-key-from-dictionary/" rel="noopener noreferrer" target="_blank">Delete Key from Dict Python
+                            </a>
+                        </div>
+
+                        <div class="footer-right">
+                            <a href="https://www.freecodecamp.org/news/indices-of-a-list-in-python-list-indexof-equivalent/" rel="noopener noreferrer" target="_blank">Indices of a List in Python
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/xml-formatting-in-notepad-how-to-format-xml-files/" rel="noopener noreferrer" target="_blank">XML Formatting in Notepad++
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/remote-branches-in-git/" rel="noopener noreferrer" target="_blank">What&#39;s a Git Remote Branch?
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/insert-into-javascript-array-at-specific-index/" rel="noopener noreferrer" target="_blank">Insert into JavaScript Array
+                            </a>
+                            <a href="https://www.freecodecamp.org/news/filter-arrays-in-javascript/" rel="noopener noreferrer" target="_blank">Filter an Array in JavaScript
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='footer-bottom'>
+            <div class="col-header" data-test-label="our-nonprofit">Our Charity</div>
+            <div class="footer-divider"></div>
+            <div class="our-nonprofit">
+                <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                    About
+                </a>
+                <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                    Alumni Network
+                </a>
+                <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                    Open Source
+                </a>
+                <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                    Shop
+                </a>
+                <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                    Support
+                </a>
+                <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                    Sponsors
+                </a>
+                <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                    Academic Honesty
+                </a>
+                <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                    Code of Conduct
+                </a>
+                <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                    Privacy Policy
+                </a>
+                <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                    Terms of Service
+                </a>
+                <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                    Copyright Policy
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"844265808c2a4a71","version":"2023.10.0","token":"bdb993c6dde44e178aabd9555e75e4f4"}' crossorigin="anonymous"></script>
+</body>
+</html>
